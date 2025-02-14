@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="title" content="yuh">
+        <meta name="description" content="Bri Birthday">
+        <title>From Elijah</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/13.0.2/markdown-it.min.js"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+            body {
+                font-family: 'Inter', sans-serif;
+                background-color: #f0f0f0;
+                position: relative;
+
+                transition: all 0.7s linear;
+            }
+
+            .background-image{
+                position: relative;
+                height: 100vh;
+                background-size: cover;
+                background-position: center;
+            }
+
+            .background-image::after {
+                content: "";
+                background-image: url("floral.jpg");
+                background-size: cover;
+                background-position: center;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                transition: opacity 2s ease-in-out;
+                z-index: 1;
+            }
+
+            .background-image.show::after {
+                opacity: 1;
+            }
+
+            #message-container {
+                background-color: rgb(231, 163, 183);
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.455);
+                position: relative;
+                z-index: 2;
+                transition: height 1.5s ease-in-out;
+            }
+
+            .heart-container{
+                display:flex;
+                flex-direction:column;
+                align-items:center;
+                z-index:2;
+                margin-bottom: 20px;
+            }
+
+            .heart {
+                color: red;
+                animation: beat 1s infinite;
+            }
+
+            @keyframes beat {
+                0% {
+                    transform: scale(1);
+                }
+                25% {
+                    transform: scale(1.2);
+                }
+                50% {
+                    transform: scale(1);
+                }
+            }
+
+            #audio-player{
+                display:none;
+            }
+        </style>
+        <script src="js/script.js"></script>
+    </head>
+    <body>
+        <div class="background-image">
+            <div class="flex justify-center items-center flex-col w-[100vw] h-[100vh] relative">            
+                <div id="message-container" class="flex-col items-center hidden h-0 overflow-y-hidden max-h-[80vh] max-w-[50vw] max-md:max-w-[70vw] max-sm:max-w-[80vw] max-sm:max-h-[80vh] py-5">
+                    <div class="w-[90%] mb-auto mt-auto">
+                        <article id="message" class="prose"></article>
+                    </div>
+                </div>
+
+                <div class="heart-container mt-2">
+                <i id="solid-heart" class="fa-solid fa-heart fa-beat fa-2x heart"></i>
+
+                <audio id="audio-player">
+                    <source src="pocketful.mp3" type="audio/mp3">
+                </audio>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
