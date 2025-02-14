@@ -80,9 +80,13 @@
                 }
             }
 
-            #audio-player{
-                display:none;
-            }
+            #audio-player {
+    width: 80%;
+    margin-top: 10px; 
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+}
         </style>
         <script src="js/script.js"></script>
     </head>
@@ -98,7 +102,7 @@
                 <div class="heart-container mt-2">
                 <i id="solid-heart" class="fa-solid fa-heart fa-beat fa-2x heart"></i>
 
-                <audio id="audio-player">
+                <audio id="audio-player" controls>
                     <source src="pocketful.mp3" type="audio/mp3">
                 </audio>
                 </div>
